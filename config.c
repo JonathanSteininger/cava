@@ -255,10 +255,16 @@ bool validate_config(struct config_params *p, struct error_s *error) {
                 write_errorf(error, "ascii max value must be a positive integer\n");
                 return false;
             }
+        } else if (strcmp(p->data_format, "unicodeBars") == 0) {
+            p->raw_format = FORMAT_UNICODE_BAR;
+            if (p->ascii_range < 1) {
+                write_errorf(error, "ascii max value must be a positive integer\n");
+                return false;
+            }
         } else {
             write_errorf(error,
-                         "data format %s is not supported, supported data formats are: 'binary' "
-                         "and 'ascii'\n",
+                         "data format %s is not supported, supported data formats are: 'binary'"
+                         ", 'ascii', and 'unicodeBars'\n",
                          p->data_format);
             return false;
         }

@@ -82,8 +82,7 @@ enum output_method {
 };
 
 enum mono_option { LEFT, RIGHT, AVERAGE };
-enum data_format { FORMAT_ASCII = 0, FORMAT_BINARY = 1, FORMAT_NTK3000 = 2 };
-
+enum data_format { FORMAT_ASCII = 0, FORMAT_BINARY = 1, FORMAT_NTK3000 = 2, FORMAT_UNICODE_BAR = 3 };
 enum xaxis_scale { NONE, FREQUENCY, NOTE };
 
 enum orientation { ORIENT_BOTTOM, ORIENT_TOP, ORIENT_LEFT, ORIENT_RIGHT };
