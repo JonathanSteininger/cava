@@ -7,15 +7,21 @@
 
 int print_raw_bar_out(int bars_count, int fd, int is_binary, int bit_format, int ascii_range,
                   char layer_delim, char frame_delim, int const f[]) {
+    //charecters used to draw
     char *barCharecters[9] = {"▁","▂","▃","▄","▅","▆","▇","█"," "};
+    //byte data to draw no hidden charecters
     int barCharByteSize = 4;
     int barCharByteOffset = 3;
+    //amount of visible bars
     int barLayers = 8;
+
+    //gets amoun of lines needed depending on ascii_range value
     ascii_range++;
-    int height=(ascii_range % barLayers == 0 ? ascii_range/barLayers : ascii_range/barLayers + 1);
+    int height= (ascii_range % barLayers == 0 ? ascii_range/barLayers : ascii_range/barLayers + 1);
     ascii_range--;
-    setlocale(LC_ALL, "en_US.UTF-8");
-    char mainBuf[barCharByteSize * height * bars_count];
+
+    //buffer to write frame into
+    char mainBuf[barCharByteSize * height * bars_count + heigth + 1];
     int size_mainBuf = 0;
     for(int level = height -1; level >= 0; level--) {
         for (int i = 0; i < bars_count; i++) {
