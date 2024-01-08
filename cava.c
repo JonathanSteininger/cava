@@ -1088,8 +1088,7 @@ as of 0.4.0 all options are specified in config file, see in '/home/username/.co
 #ifndef _MSC_VER
                 case OUTPUT_RAW:
                     if( p.raw_format == FORMAT_UNICODE_BAR) {
-                        rc = print_raw_bar_out(number_of_bars, fp, p.raw_format, p.bit_format,
-                                           p.ascii_range, p.bar_delim, p.frame_delim, bars);
+                        rc = print_raw_bar_out(number_of_bars, fp, p.ascii_range, p.bar_delim, p.frame_delim, bars);
                     } else {
                         rc = print_raw_out(number_of_bars, fp, p.raw_format, p.bit_format,
                                            p.ascii_range, p.bar_delim, p.frame_delim, bars);

@@ -1,11 +1,7 @@
-#include <locale.h>
-#include <math.h>
-#include <stdint.h>
 #include <stdio.h>
-#include <string.h>
 #include <unistd.h>
 
-int print_raw_bar_out(int bars_count, int fd, int is_binary, int bit_format, int ascii_range,
+int print_raw_bar_out(int bars_count, int fd, int ascii_range,
                   char layer_delim, char frame_delim, int const f[]) {
     //charecters used to draw
     char *barCharecters[9] = {"▁","▂","▃","▄","▅","▆","▇","█"," "};
