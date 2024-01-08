@@ -36,7 +36,7 @@ int print_raw_bar_out(int bars_count, int fd, int ascii_range,
                 index = barLayers;
             }
             //appends char to buffer
-            snprintf(mainBuf + size_mainBuf, barCharByteSize, barCharecters[index]);
+            snprintf(mainBuf + size_mainBuf, barCharByteSize, "%s", barCharecters[index]);
             size_mainBuf += barCharByteOffset;
         }
         //appends bar line delimiter
