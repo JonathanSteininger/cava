@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 int print_raw_bar_out(int bars_count, int fd, int is_binary, int bit_format, int ascii_range,
-                  char bar_delim, char frame_delim, int const f[]) {
+                  char layer_delim, char frame_delim, int const f[]) {
     char *barCharecters[9] = {"▁","▂","▃","▄","▅","▆","▇","█"," "};
     int barCharByteSize = 4;
     int barCharByteOffset = 3;
@@ -36,11 +36,11 @@ int print_raw_bar_out(int bars_count, int fd, int is_binary, int bit_format, int
             size_mainBuf += barCharByteOffset;
         }
         if (level != 0){
-            sprintf(mainBuf + size_mainBuf, ";");
+            sprintf(mainBuf + size_mainBuf, "%c", layer_delim);
             size_mainBuf += 1;
         }
     }
-    sprintf(mainBuf + size_mainBuf, "\n");
+    sprintf(mainBuf + size_mainBuf, "%c", frame_delim);
     size_mainBuf += 1;
     write(fd, &mainBuf, size_mainBuf);
     
